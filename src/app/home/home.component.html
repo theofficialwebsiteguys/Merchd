@@ -1,0 +1,18 @@
+<div class="banner">
+    <h1>{{ bannerTitle }}</h1>
+    <p>{{ bannerSubtitle }}</p>
+  </div>
+
+<div class="grid-container">
+    <div class="grid-item" *ngFor="let item of gridItems">
+      <div class="overlay"></div> <!-- Dark overlay -->
+      <img [src]="item.image" class="grid-image" alt="{{ item.title }}">
+      <div class="grid-content">
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.description }}</p>
+        <a href="#" class="btn btn-light">Shop</a>
+      </div>
+    </div>
+  </div>
+  
+  

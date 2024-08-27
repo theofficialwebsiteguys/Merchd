@@ -1,0 +1,194 @@
+/* Navbar */
+.custom-navbar {
+  background-color: #F9F0D9; /* Beige color */
+  padding: 20px 0; /* Increase padding for thicker navbar */
+  box-shadow: none;
+  border-bottom: 1px solid #EDEDED;
+  width: 100%;
+  z-index: 1020; /* Lower z-index than the social bar */
+}
+
+.navbar-toggler-icon {
+  width: 3em;
+  height: 3em;
+}
+
+.navbar-toggler {
+  background-color: white;
+}
+
+.slide-in-menu {
+  position: fixed;
+  top: 0;
+  right: -340px;
+  width: 340px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: right 0.3s;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+
+.slide-in-menu.active {
+  right: 0;
+}
+
+.slide-in-menu-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  padding-top: 60px;
+  max-height: 100%;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.slide-footer {
+  margin-top: auto;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  .slide-in-menu {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-collapse {
+    justify-content: flex-start;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 16px; /* Slightly reduce font size on tablets */
+    padding: 0 15px;
+  }
+
+  .navbar-brand img {
+    height: 80px; /* Adjust logo size for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-collapse {
+    justify-content: flex-start;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 14px; /* Further reduce font size for mobile */
+    padding: 10px 15px; /* Add padding to make clickable area bigger */
+  }
+
+  .navbar-brand img {
+    height: 70px; /* Adjust logo size for mobile */
+  }
+
+  .navbar-nav .nav-item {
+    margin: 0 10px;
+  }
+
+  .social-bar {
+    font-size: 12px; /* Reduce font size in the social bar on mobile */
+  }
+
+  .fab {
+    font-size: 16px; /* Reduce icon size in the social bar on mobile */
+    margin: 3px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-nav {
+    flex-direction: column; /* Stack navbar items vertically on small screens */
+    text-align: center;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 10px 0; /* Add padding for better spacing */
+  }
+
+  .navbar-brand img {
+    height: 60px; /* Adjust logo size for extra small mobile */
+  }
+
+  .social-bar {
+    font-size: 10px; /* Reduce font size in the social bar on extra small mobile */
+  }
+
+  .fab {
+    font-size: 14px; /* Reduce icon size further on extra small mobile */
+  }
+}
+
+.navbar-brand img {
+  height: 100px;
+}
+
+@media (max-width: 992px) {
+  .navbar-collapse {
+    display: none; /* Hide the navbar options */
+  }
+
+  .navbar-toggler {
+    display: block; /* Ensure the menu icon is visible */
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-collapse {
+    display: none; /* Hide the navbar options */
+  }
+
+  .navbar-toggler {
+    display: block;
+    position: absolute;
+    top: 50px; /* Adjust top position to your liking */
+    right: 20px; /* Align it to the right */
+    height: 40px; /* Smaller size for the icon */
+  }
+
+  .navbar-toggler-icon {
+    width: 30px; /* Adjust the width of the icon */
+    height: 30px; /* Adjust the height of the icon */
+  }
+
+  /* Hide the shopping cart and search icons */
+  .navbar-nav.ml-auto {
+    display: none;
+  }
+}
+
+@media (min-width: 993px) {
+  .navbar-toggler {
+    display: none; /* Hide the menu icon on larger screens */
+  }
+
+  .navbar-nav.ml-auto {
+    display: flex; /* Ensure shopping cart and search icons are shown on larger screens */
+  }
+}
+
+
+.fab{
+  font-size: 20px;
+  margin: 5px;
+  color: black;
+}
+
+.free-ship{
+  font-size: 14px;
+}

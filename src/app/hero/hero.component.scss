@@ -1,0 +1,37 @@
+.hero-container {
+    background-image: url('../../assets/hollihobby-hero.png');
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Media query for screens smaller than 786px */
+@media only screen and (max-width: 786px) {
+    .hero-container {
+        background-image: url('../../assets/hero-mobile.png');
+    }
+}
+
+.hero-content {
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-family: 'YourFontFamily', serif; /* Font similar to the image */
+    font-size: 3rem;
+    color: #FFFFFF; /* White text */
+}
+
+.hero-content .btn {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
