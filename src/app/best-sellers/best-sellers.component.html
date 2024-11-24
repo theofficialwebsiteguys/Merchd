@@ -1,0 +1,23 @@
+<div class="section-header">
+  <h2 class="section-title">Best Sellers</h2>
+  <p class="section-subtitle">Popular items getting ordered on the regular.</p>
+</div>
+
+<div class="product-grid">
+  <div class="product-card" *ngFor="let product of filteredProducts" (click)="viewProduct(product)"> 
+    <div class="image-wrapper">
+      <img [src]="product.image" alt="{{ product.title }}" />
+      <div class="product-badge" *ngIf="product.isCustomizable">
+        Customizable
+      </div>
+    </div>
+    <div class="product-info">
+      <h3 class="product-title">{{ product.title }}</h3>
+      <p class="product-category">{{ product.category }}</p>
+      <p class="product-price">US${{ product.price }}</p>
+    </div>
+    <div class="product-actions">
+      <button class="select-options" (click)="viewProduct(product)">Select Options</button>
+    </div>
+  </div>
+</div>

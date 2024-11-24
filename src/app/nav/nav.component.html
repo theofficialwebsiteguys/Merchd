@@ -1,81 +1,33 @@
 <!-- Social Bar -->
 <div class="social-bar">
-    <div class="container-fluid d-flex justify-content-between">
-      <span class="free-ship m-auto">FREE SHIPPING - On all orders of $200 and over</span>
-      <div>
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-tiktok"></i></a>
-      </div>
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <span class="free-ship">FREE SHIPPING - On all orders of $200 and over</span>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-tiktok"></i></a>
     </div>
   </div>
-  
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/home">
-        <img src="assets/HollisHobby-logo.png" alt="Logo">
-      </a>
-  
-      <!-- Navbar toggler button -->
-      <button class="navbar-toggler" type="button" (click)="toggleMobileMenu()">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="navbar-collapse justify-content-center">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/clothing">Clothing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/accessories">Stuffed Animals</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/homeware">Accessories</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/gift-ideas">Other</a>
-          </li>
-        </ul>
-      </div>
-      <div class="navbar-nav ml-auto">
-        <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
-        <a class="nav-link" routerLink="/cart"><i class="fas fa-shopping-cart"></i></a>
-      </div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg custom-navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+      <img src="assets/HollisHobby-logo.png" alt="Hollis Hobby Crafts Logo" class="logo">
+    </a>
+
+    <div class="navbar-collapse justify-content-center">
+      <ul class="navbar-nav" *ngFor="let menuItem of menu">
+        <li class="nav-item">
+          <a class="nav-link"  [routerLink]="menuItem.route" [queryParams]="{ category: menuItem.category }">{{menuItem.title}}</a>
+        </li>
+      </ul>
     </div>
-  
-    <!-- Slide-in menu for smaller screens -->
-    <div class="slide-in-menu" [class.active]="mobileMenuActive">
-      <div class="slide-in-menu-content">
-        <!-- Close button -->
-        <button class="close-button" (click)="closeMenu()">×</button>
-  
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/clothing" routerLinkActive="active">Clothing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/accessories" routerLinkActive="active">Stuffed Animals</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/homeware" routerLinkActive="active">Accessories</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/gift-ideas" routerLinkActive="active">Other</a>
-          </li>
-        </ul>
-  
-        <div class="container slide-footer text-center">
-          <img src="assets/HollisHobby-logo.png" id="logo" height="100" alt="Logo Description" />
-          <p class="text-dark mt-3">Hollis Hobby Crafts</p>
-          <section class="m-4">
-            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.instagram.com/" role="button" data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
-            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="" role="button" data-mdb-ripple-color="dark"><i class="fab fa-tiktok"></i></a>
-          </section>
-        </div>
-      </div>
+
+    <div class="navbar-icons">
+      <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+      <a class="nav-link" routerLink="/cart"><i class="fas fa-shopping-cart"></i></a>
     </div>
-  </nav>
-  
-  <app-hero></app-hero>
-  
+  </div>
+</nav>

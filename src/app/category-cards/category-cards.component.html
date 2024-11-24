@@ -1,0 +1,20 @@
+<section class="featured-products">
+
+    <div class="grid-container">
+      <div class="grid-item" *ngFor="let item of gridItems">
+        <div class="image-wrapper">
+          <img [src]="item.image" alt="{{ item.title }}" class="grid-image" />
+          <a
+          class="category-btn"
+          [routerLink]="'/products'"
+          [queryParams]="{ category: item.category }"
+          (click)="setCategory(item.category)"
+        >
+          {{ item.title }}
+        </a>
+        
+        </div>
+      </div>
+    </div>
+  </section>
+  

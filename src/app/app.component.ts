@@ -32,8 +32,13 @@ export class AppComponent {
     private route: ActivatedRoute,
     private router: Router
   ) {}
-
-  ngOnInit() {
+  
+  ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        window.scrollTo(0, 0); // Scrolls to the top of the page
+      }
+    });
   }
 
 }

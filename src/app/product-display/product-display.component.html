@@ -1,0 +1,49 @@
+<div class="breadcrumb">
+  <a routerLink="/">Home</a> / 
+  <a routerLink="/products">Products</a> / 
+  <span>{{ product.title }}</span>
+</div>
+
+<div class="product-display-container">
+  <!-- Existing content -->
+  <div class="image-gallery">
+    <img [src]="product.image" alt="{{ product.title }}" class="main-image" />
+  </div>
+
+  <div class="product-details">
+    <h1 class="product-title">{{ product.title }}</h1>
+    <p class="product-price">US${{ product.price }}</p>
+    <p class="product-description">{{ product.desc }}</p>
+
+    <!-- Customization Section -->
+    <div class="customization-section">
+      <h3>Customize Your Product</h3>
+      <div class="customization-field">
+        <label for="color">Color:</label>
+        <select id="color" [(ngModel)]="selectedColor">
+          <option *ngFor="let color of product.colors" [value]="color">{{ color }}</option>
+        </select>
+      </div>
+      <div class="customization-field">
+        <label for="custom-text">Custom Text:</label>
+        <input id="custom-text" [(ngModel)]="customText" type="text" placeholder="Enter text here" />
+      </div>
+    </div>
+
+    <!-- Add to Cart Section -->
+    <div class="add-to-cart-section">
+      <div class="quantity-selector">
+        <button (click)="decreaseQuantity()">-</button>
+        <input type="number" [value]="quantity" readonly />
+        <button (click)="increaseQuantity()">+</button>
+      </div>
+      <button class="add-to-cart-button" (click)="addToCart()">Add to Cart</button>
+    </div>
+
+    <!-- Additional Details -->
+    <div class="additional-details">
+      <p><strong>Category:</strong> {{ product.category }}</p>
+      <p><strong>Tag:</strong> {{ product.tag }}</p>
+    </div>
+  </div>
+</div>

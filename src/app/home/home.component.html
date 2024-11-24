@@ -1,18 +1,12 @@
-<div class="banner">
-    <h1>{{ bannerTitle }}</h1>
-    <p>{{ bannerSubtitle }}</p>
-  </div>
+<app-hero></app-hero>
 
-<div class="grid-container">
-    <div class="grid-item" *ngFor="let item of gridItems">
-      <div class="overlay"></div> <!-- Dark overlay -->
-      <img [src]="item.image" class="grid-image" alt="{{ item.title }}">
-      <div class="grid-content">
-        <h2>{{ item.title }}</h2>
-        <p>{{ item.description }}</p>
-        <a href="#" class="btn btn-light">Shop</a>
-      </div>
-    </div>
+<div class="section-header">
+    <h2 class="section-title">Shop by Category</h2>
+    <p class="section-subtitle">Anything from Baby Products to stuffed animals.</p>
   </div>
-  
+<app-category-cards></app-category-cards>
+
+<app-best-sellers></app-best-sellers>
+
+<app-banner></app-banner>
   

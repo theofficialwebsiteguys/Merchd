@@ -1,156 +1,22 @@
-.banner {
-    background-color: #003366; /* Dark Blue */
-    color: #FFFFFF;
+.section-title {
     text-align: center;
-    padding: 40px 20px;
-  }
-  
-  .banner h1 {
     font-size: 2.5rem;
+    font-weight: 800;
+    color: #333;
     margin-bottom: 10px;
-    font-family: 'YourFontFamily', serif; /* Update this to match the desired font */
-  }
-  
-  .banner p {
-    font-size: 1.25rem;
-    margin-bottom: 0;
-    font-family: 'YourFontFamily', serif; /* Update this to match the desired font */
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns of equal width */
-    gap: 0; /* No spacing between items */
-    width: 100%; /* Full width of the page */
-    margin: 0 auto; /* Center the grid */
-  }
-  
-  .grid-item {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer; /* Add cursor pointer for better UX */
-    transition: transform 0.3s ease; /* Smooth hover effect */
-  }
-  
-  .grid-item:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-  }
-  
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
-    z-index: 1; /* Below the content but above the image */
-    transition: background-color 0.3s ease; /* Smooth transition for overlay */
-  }
-  
-  .grid-item:hover .overlay {
-    background-color: rgba(0, 0, 0, 0.7); /* Darker overlay on hover */
-  }
-  
-  .grid-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0; /* Ensure the image is at the bottom */
-  }
-  
-  .grid-content {
-    position: absolute;
-    top: 50%; /* Start at the middle */
-    left: 50%; /* Start at the middle */
-    transform: translate(-50%, -50%); /* Center the content */
-    color: #fff;
-    text-align: center; /* Center the text */
-    z-index: 2; /* Above the overlay */
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.4); /* Slight background for readability */
-    border-radius: 10px; /* Add slight rounding for modern look */
-  }
-  
-  .grid-content h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    font-family: 'YourFontFamily', serif; /* Professional font */
-  }
-  
-  .grid-content p {
-    font-size: 1rem;
-    margin-bottom: 10px;
-    font-family: 'YourFontFamily', serif; /* Professional font */
-  }
-  
-  .grid-content .btn {
-    background-color: #fff;
-    color: #000;
+    font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 5px; /* Smooth button corners */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+    letter-spacing: 1px;
   }
   
-  .grid-content .btn:hover {
-    background-color: #000;
-    color: #fff; /* Inverse colors on hover */
+  .section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    font-family: 'Poppins', sans-serif;
   }
   
-  /* Responsive Design */
-  
-  @media (max-width: 1024px) {
-    .grid-container {
-      grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .grid-container {
-      grid-template-columns: 1fr; /* Stack all items vertically on small screens */
-    }
-  
-    .grid-content {
-      padding: 15px; /* Adjust padding for smaller screens */
-    }
-  
-    .grid-content h2 {
-      font-size: 3rem;
-    }
-  
-    .grid-content p {
-      font-size: 2rem;
-    }
-  
-    .grid-content .btn {
-      padding: 8px 16px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .banner h1 {
-      font-size: 2rem;
-    }
-  
-    .banner p {
-      font-size: 3rem;
-    }
-  
-    .grid-content {
-      padding: 10px; /* Smaller padding for mobile */
-    }
-  
-    .grid-content h2 {
-      font-size: 3rem;
-    }
-  
-    .grid-content p {
-      font-size: 1rem;
-    }
-  
-    .grid-content .btn {
-      padding: 6px 12px;
-    }
+  .section-header {
+    padding-top: 60px
   }
   

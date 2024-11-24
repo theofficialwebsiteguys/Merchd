@@ -1,0 +1,130 @@
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Wider min column width */
+  gap: 20px;
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+/* Product Card */
+.product-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Wrapper */
+.image-wrapper {
+  position: relative;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 300px; /* Reduced height for a sleeker look */
+  object-fit: cover;
+}
+
+.product-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background:#fcb69f;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Product Info */
+.product-info {
+  padding: 20px;
+  text-align: center;
+  background: #f9f9f9; /* Subtle background for contrast */
+  border-top: 1px solid #eee;
+}
+
+.product-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 5px;
+  font-family: 'Poppins', sans-serif;
+  text-transform: capitalize;
+}
+
+.product-category {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.product-price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fcb69f;
+  margin-bottom: 15px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Product Actions */
+.product-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+
+.select-options {
+  background: #fcb69f;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  text-transform: uppercase;
+}
+
+.select-options:hover {
+  background: #fcb69f;
+  transform: scale(1.05);
+}
+
+/* Section Header */
+.section-header {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+  text-align: center;
+}
