@@ -13,50 +13,24 @@ import { Product } from '../models/product';
     templateUrl: './nav.component.html',
     styleUrls: ['./nav.component.scss']
 })
-export class NavComponent implements OnInit {
+export class NavComponent {
+    menuOpen = false;
 
-    menu: any = [
-        {
-            title: "Clothing",
-            category: "CLOTHING",
-            route: "/products",
-        },
-        {
-            title: "Stuffed Animals",
-            category: "STUFFED-ANIMALS",
-            route: "/products",
-        },
-        {
-            title: "Decorations",
-            category: "DECORATIONS",
-            route: "/products",
-        },
-        {
-            title: "Crochet",
-            category: "CROCHET",
-            route: "/products",
-        },
-        {
-            title: "About",
-            category: "",
-            route: "/about",
-        },
-        {
-            title: "Contact",
-            category: "",
-            route: "/contact",
-        },
-
+    menu = [
+      { title: "Clothing", category: "CLOTHING", route: "/products" },
+      { title: "Stuffed Animals", category: "STUFFED-ANIMALS", route: "/products" },
+      { title: "Decorations", category: "DECORATIONS", route: "/products" },
+      { title: "Crochet", category: "CROCHET", route: "/products" },
+      { title: "About", category: "", route: "/about" },
+      { title: "Contact", category: "", route: "/contact" }
     ];
-
-    constructor(
-        private router: Router, 
-        private productService: ProductService,
-    ) {  }
-
-    ngOnInit() {
-     
+  
+    toggleMenu() {
+      this.menuOpen = !this.menuOpen;
     }
 
+    closeMenu(){
+        this.menuOpen = false;
+    }
     
 }

@@ -1,12 +1,55 @@
 /* Main Container */
 .product-display-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 40px auto;
-    font-family: 'Poppins', sans-serif;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto;
+  font-family: 'Poppins', sans-serif;
+  flex-direction: column; /* Ensure breadcrumb aligns properly */
+  padding: 20px;
+}
+
+/* Breadcrumb Section */
+.product-header {
+  margin-bottom: 20px;
+  width: 100%; /* Ensure it spans the container */
+}
+
+.breadcrumb {
+  font-size: 0.9rem;
+  color: #555;
+  font-family: 'Poppins', sans-serif;
+  background: #f9f9f9; /* Subtle background to visually separate it */
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumb a {
+  color: #ff6b6b;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: #e05555;
+}
+
+.breadcrumb span {
+  color: #333;
+  font-weight: bold;
+}
+
+/* Product Content Section */
+.product-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* Other styles remain unchanged */
+
   /* Image Gallery */
 .image-gallery {
     flex: 1 1 40%; /* Adjust width for balance */
@@ -157,28 +200,5 @@
   
   .additional-details p {
     margin: 5px 0;
-  }
-  
-
-  .breadcrumb {
-    margin-bottom: 20px;
-    font-size: 0.9rem;
-    color: #555;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  .breadcrumb a {
-    color: #ff6b6b;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .breadcrumb a:hover {
-    color: #e05555;
-  }
-  
-  .breadcrumb span {
-    color: #333;
-    font-weight: bold;
   }
   

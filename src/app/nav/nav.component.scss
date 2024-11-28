@@ -1,13 +1,115 @@
-/* General Styling */
-body {
-  font-family: 'Poppins', sans-serif;
+/* Navbar */
+.custom-navbar {
+  background-color: #F9F0D9;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+
+  .navbar-toggler {
+    border: none;
+    background: none;
+    font-size: 24px;
+    color: #444;
+    display: none; /* Hidden by default */
+  }
+
+  @media (max-width: 992px) {
+    .navbar-toggler {
+      display: block; /* Show hamburger menu */
+    }
+
+    .navbar-collapse,
+    .navbar-icons {
+      display: none; /* Hide desktop menu */
+    }
+  }
 }
+
+/* Slide-in Menu */
+.slide-in-menu {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Hidden by default */
+  width: 300px;
+  height: 100%;
+  background-color: #FFF;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-in-out;
+  z-index: 1050;
+
+  &.active {
+    right: 0; /* Slide in when active */
+  }
+
+  .slide-in-menu-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px;
+
+    .close-button {
+      align-self: flex-end;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #444;
+
+      &:hover {
+        color: #FF7F50;
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 15px;
+
+        .nav-link {
+          color: #444;
+          font-size: 18px;
+          text-decoration: none;
+          transition: color 0.3s;
+
+          &:hover {
+            color: #FF7F50;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Mobile Styling */
+@media (max-width: 768px) {
+  .slide-in-menu {
+    width: 260px;
+  }
+
+  .slide-in-menu .nav-link {
+    font-size: 16px;
+    padding: 8px 0;
+  }
+
+  .close-button {
+    font-size: 30px;
+  }
+}
+
+
+
 
 /* Social Bar */
 .social-bar {
   background-color: #FFF8E7;
   padding: 10px 20px;
   border-bottom: 1px solid #EDEDED;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .free-ship {
@@ -28,206 +130,13 @@ body {
   color: #FF7F50;
 }
 
-/* Navbar */
-.custom-navbar {
-  background-color: #F9F0D9;
-  padding: 10px 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1020;
-}
-
-.navbar-brand .logo {
-  height: 100px;
-  transition: transform 0.3s;
-}
-
-.navbar-brand .logo:hover {
-  transform: scale(1.1);
-}
-
-.navbar-toggler {
-  border: none;
-  background: transparent;
-  font-size: 24px;
-  color: #444;
-}
-
-.navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-nav {
-  display: flex;
-  gap: 15px;
-}
-
-.navbar-nav .nav-link {
-  color: #444;
-  font-weight: 500;
-  font-size: 16px;
-  padding: 5px 10px;
-  transition: color 0.3s, border-bottom 0.3s;
-}
-
-.navbar-nav .nav-link:hover {
-  color: #FF7F50;
-  border-bottom: 2px solid #FF7F50;
-}
-
-.navbar-icons{
-  display: flex;
-}
-
-.navbar-icons a {
-  font-size: 20px;
-  color: #444;
-  margin-left: 10px;
-  transition: color 0.3s;
-}
-
-.navbar-icons a:hover {
-  color: #FF7F50;
-}
-
-/* Slide-in Menu */
-.slide-in-menu {
-  position: fixed;
-  top: 0;
-  right: -300px;
-  width: 300px;
-  height: 100%;
-  background-color: #FFF;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-  transition: right 0.3s ease-in-out;
-  z-index: 1050;
-}
-
-.slide-in-menu.active {
-  right: 0;
-}
-
-.slide-in-menu-content {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 20px;
-}
-
-.close-button {
-  align-self: flex-end;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #444;
-}
-
-.close-button:hover {
-  color: #FF7F50;
-}
-
-.slide-in-menu .nav-link {
-  padding: 10px 0;
-  font-size: 18px;
-  color: #444;
-  border-bottom: 1px solid #EDEDED;
-  transition: color 0.3s;
-}
-
-.slide-in-menu .nav-link:hover {
-  color: #FF7F50;
-}
-
-/* Responsive Styling */
-@media (max-width: 992px) {
-  .navbar-collapse {
-    display: none;
-  }
-}
-
-@media (min-width: 993px) {
-  .navbar-toggler {
-    display: none;
-  }
-}
-
-
-/* General Mobile Styles */
 @media (max-width: 768px) {
-  /* Social Bar */
-  .social-bar {
-    font-size: 12px;
-    padding: 5px 15px;
+  .social-icons {
+    display: none; /* Hide social icons on mobile devices */
   }
-
-  .social-bar .social-icons a {
-    font-size: 14px;
-    margin: 0 5px;
-  }
-
-  /* Navbar */
-  .navbar-brand .logo {
-    height: 50px; /* Smaller logo for mobile */
-  }
-
-  .navbar-toggler {
-    font-size: 20px;
-    color: #444;
-  }
-
-  .navbar-icons a {
-    font-size: 18px; /* Adjust icon size for mobile */
-    margin-left: 8px;
-  }
-
-  /* Slide-In Menu */
-  .slide-in-menu {
-    width: 260px; /* Slightly narrower for small screens */
-  }
-
-  .slide-in-menu-content {
-    padding: 15px;
-  }
-
-  .slide-in-menu .nav-link {
-    font-size: 16px; /* Slightly smaller text */
-    padding: 8px 0;
-  }
-
-  .close-button {
-    font-size: 30px;
-  }
-}
-
-/* Extra Small Devices */
-@media (max-width: 576px) {
-  /* Social Bar */
-  .social-bar {
-    font-size: 10px; /* Further reduce font size */
-    padding: 5px 10px;
-  }
-
-  .social-bar .social-icons a {
-    font-size: 12px;
-  }
-
-  /* Navbar */
-  .navbar-brand .logo {
-    height: 40px; /* Adjust logo size */
-  }
-
-  .navbar-icons a {
-    font-size: 16px; /* Smaller icons for extra-small devices */
-  }
-
-  /* Slide-In Menu */
-  .slide-in-menu {
-    width: 220px;
-  }
-
-  .slide-in-menu .nav-link {
-    font-size: 14px;
+  .free-ship {
+    text-align: center; /* Center the text */
+    padding-left: 0; /* Remove left padding to center align */
+    width: 100%; /* Ensure it takes full width for centering */
   }
 }

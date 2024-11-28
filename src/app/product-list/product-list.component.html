@@ -1,59 +1,50 @@
-<app-category-cards></app-category-cards>
-
 <section class="product-list">
-    <!-- Section Header -->
-    <div class="section-header">
-      <h2 class="section-title">Gifts for the Creative Kid</h2>
-      <p class="section-subtitle">
-        Playful gifts and games to delight the young ones in your life, from toddlers to pre-teens.
-      </p>
-    </div>
-  
-    <div class="product-list-container">
-      <!-- Sidebar Filters -->
-      <aside class="filter-sidebar">
-        <h3>Filters</h3>
-        <div class="filter-group">
-          <h4>Availability</h4>
-          <label>
-            <input type="checkbox" /> In stock
-          </label>
+  <div class="section-header">
+    <h2 class="section-title">Gifts for the Creative Kid</h2>
+    <p class="section-subtitle">
+      Playful gifts and games to delight the young ones in your life, from toddlers to pre-teens.
+    </p>
+  </div>
+
+  <!-- Filter Toggle Button for Mobile -->
+  <button class="filter-toggle" (click)="toggleFilters()">Filters</button>
+
+  <div class="product-list-container">
+    <!-- Sidebar Filters -->
+    <aside class="filter-sidebar" [class.collapsed]="!showFilters">
+      <h3>Filters</h3>
+      <div class="filter-group">
+        <h4>Availability</h4>
+        <label>
+          <input type="checkbox" /> In stock
+        </label>
+      </div>
+      <div class="filter-group">
+        <h4>Price</h4>
+        <ul>
+          <li><a href="#">Under $25</a></li>
+          <li><a href="#">$25 to $50</a></li>
+          <li><a href="#">$50 to $100</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Product Grid -->
+    <div class="product-grid">
+      <div class="product-card" *ngFor="let product of filteredProducts">
+        <div class="image-wrapper">
+          <img [src]="product.image" alt="{{ product.title }}" />
         </div>
-        <div class="filter-group">
-          <h4>Price</h4>
-          <ul>
-            <li><a href="#">Under $25</a></li>
-            <li><a href="#">$25 to $50</a></li>
-            <li><a href="#">$50 to $100</a></li>
-          </ul>
+        <div class="product-info">
+          <h3 class="product-title">{{ product.title }}</h3>
+          <p class="product-country">Handcrafted by {{ product.country }}</p>
+          <p class="product-reviews">{{ product.reviews }} reviews</p>
+          <p class="product-price">${{ product.price }}</p>
         </div>
-        <div class="filter-group">
-          <h4>Country</h4>
-          <ul>
-            <li><a href="#">India</a></li>
-            <li><a href="#">USA</a></li>
-          </ul>
-        </div>
-      </aside>
-  
-      <!-- Product Grid -->
-      <div class="product-grid">
-        <div class="product-card" *ngFor="let product of filteredProducts">
-          <div class="image-wrapper">
-            <img [src]="product.image" alt="{{ product.title }}" />
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">{{ product.title }}</h3>
-            <p class="product-country">Handcrafted by {{ product.country }}</p>
-            <p class="product-reviews">{{ product.reviews }} reviews</p>
-            <p class="product-price">${{ product.price }}</p>
-          </div>
-          <div class="wishlist-icon">
-            <i class="far fa-heart"></i>
-          </div>
+        <div class="wishlist-icon">
+          <i class="far fa-heart"></i>
         </div>
       </div>
-      
     </div>
-  </section>
-  
+  </div>
+</section>

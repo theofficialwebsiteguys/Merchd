@@ -15,8 +15,15 @@ export class ProductListComponent {
 
   currentCategory: string | null = null;
   filteredProducts: any[] = [];
+  showFilters: boolean = false; // Controls the visibility of the filter sidebar
 
   constructor(private productService: ProductService, private route: ActivatedRoute){ }
+
+
+  toggleFilters() {
+    const filterSidebar = document.querySelector('.filter-sidebar');
+    filterSidebar?.classList.toggle('active');
+  }
 
   ngOnInit(){
     this.route.queryParamMap.subscribe((params) => {

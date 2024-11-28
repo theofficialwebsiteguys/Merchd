@@ -149,3 +149,17 @@
 .footer-policies span {
   color: #999;
 }
+
+
+/* Mobile Styling */
+@media (max-width: 768px) {
+  .footer-links{
+    display: block;
+    text-align: center;
+  }
+
+  .footer-column{
+    margin-bottom: 25px;
+  }
+  
+}

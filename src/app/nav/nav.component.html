@@ -13,21 +13,45 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg custom-navbar">
   <div class="container-fluid">
-    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
-      <img src="assets/HollisHobby-logo.png" alt="Hollis Hobby Crafts Logo" class="logo">
+    <!-- Logo -->
+    <a class="navbar-brand" routerLink="/home">
+      <img src="assets/HollisHobby-logo.png" width="75" alt="Logo" class="logo">
     </a>
 
-    <div class="navbar-collapse justify-content-center">
-      <ul class="navbar-nav" *ngFor="let menuItem of menu">
-        <li class="nav-item">
-          <a class="nav-link"  [routerLink]="menuItem.route" [queryParams]="{ category: menuItem.category }">{{menuItem.title}}</a>
+    <!-- Hamburger Menu -->
+    <button class="navbar-toggler" (click)="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Desktop Menu -->
+    <div class="navbar-collapse justify-content-center d-none d-lg-flex">
+      <ul class="navbar-nav">
+        <li class="nav-item" *ngFor="let menuItem of menu">
+          <a class="nav-link" [routerLink]="menuItem.route" [queryParams]="{ category: menuItem.category }">
+            {{ menuItem.title }}
+          </a>
         </li>
       </ul>
     </div>
 
-    <div class="navbar-icons">
+    <!-- Desktop Icons -->
+    <div class="navbar-icons d-none d-lg-flex">
       <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
       <a class="nav-link" routerLink="/cart"><i class="fas fa-shopping-cart"></i></a>
     </div>
   </div>
 </nav>
+
+<!-- Slide-in Menu -->
+<div class="slide-in-menu" [class.active]="menuOpen">
+  <div class="slide-in-menu-content">
+    <button class="close-button" (click)="toggleMenu()">&times;</button>
+    <ul>
+      <li *ngFor="let menuItem of menu">
+        <a class="nav-link" [routerLink]="menuItem.route" [queryParams]="{ category: menuItem.category }" (click)="closeMenu()">
+          {{ menuItem.title }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
