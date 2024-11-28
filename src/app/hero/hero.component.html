@@ -2,7 +2,11 @@
     <div class="hero-content">
       <h1 class="hero-title">Custom Designs on Everything</h1>
       <p class="hero-subtitle">Handmade, personalized crafts for all your special moments.</p>
-      <a routerLink="/products?category=ALL" class="btn btn-primary">Shop Now</a>
+      <a
+          class="btn btn-primary"
+          [routerLink]="'/products'"
+          [queryParams]="{ category: 'ALL' }"
+        >Shop Now</a>
     </div>
   
 
