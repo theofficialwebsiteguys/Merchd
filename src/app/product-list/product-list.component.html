@@ -1,4 +1,6 @@
 <section class="product-list">
+
+  
   <div class="section-header">
     <h2 class="section-title">Gifts for the Creative Kid</h2>
     <p class="section-subtitle">
@@ -31,7 +33,7 @@
 
     <!-- Product Grid -->
     <div class="product-grid">
-      <div class="product-card" *ngFor="let product of filteredProducts">
+      <div class="product-card" *ngFor="let product of filteredProducts" (click)="viewProduct(product)">
         <div class="image-wrapper">
           <img [src]="product.image" alt="{{ product.title }}" />
         </div>

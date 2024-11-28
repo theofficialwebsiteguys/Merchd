@@ -4,10 +4,10 @@
   flex-wrap: wrap;
   gap: 30px;
   max-width: 1200px;
-  margin: 40px auto;
   font-family: 'Poppins', sans-serif;
   flex-direction: column; /* Ensure breadcrumb aligns properly */
   padding: 20px;
+  margin: auto;
 }
 
 /* Breadcrumb Section */
@@ -200,5 +200,19 @@
   
   .additional-details p {
     margin: 5px 0;
+  }
+  .back-button {
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 24px;
+    cursor: pointer;
+    margin: 0;
+  }
+  
+  .back-button i {
+    pointer-events: none; /* Ensures only the button is clickable, not the icon separately */
   }
   

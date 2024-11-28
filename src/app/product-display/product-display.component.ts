@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../product.service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -18,7 +18,7 @@ export class ProductDisplayComponent {
   customText: string = '';
   quantity: number = 1;
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private location: Location) {}
 
   ngOnInit(): void {
     this.product = this.productService.getSelectedProduct();
@@ -47,5 +47,9 @@ export class ProductDisplayComponent {
     };
     console.log('Item added to cart:', cartItem);
     // Add functionality to store cart item
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

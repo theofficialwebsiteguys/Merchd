@@ -21,7 +21,6 @@ export class NavComponent {
       { title: "Stuffed Animals", category: "STUFFED-ANIMALS", route: "/products" },
       { title: "Decorations", category: "DECORATIONS", route: "/products" },
       { title: "Crochet", category: "CROCHET", route: "/products" },
-      { title: "About", category: "", route: "/about" },
       { title: "Contact", category: "", route: "/contact" }
     ];
   

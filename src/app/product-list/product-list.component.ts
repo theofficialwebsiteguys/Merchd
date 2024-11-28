@@ -1,8 +1,8 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { CategoryCardsComponent } from '../category-cards/category-cards.component';
 import { ProductService } from '../product.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -17,7 +17,7 @@ export class ProductListComponent {
   filteredProducts: any[] = [];
   showFilters: boolean = false; // Controls the visibility of the filter sidebar
 
-  constructor(private productService: ProductService, private route: ActivatedRoute){ }
+  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router){ }
 
 
   toggleFilters() {
@@ -35,4 +35,11 @@ export class ProductListComponent {
       }
     });
   }
+
+  viewProduct(product: any): void {
+    this.productService.setSelectedProduct(product); // Set the selected product
+    this.router.navigate(['/product']); // Navigate to the product display page
+  }
+
+
 }
