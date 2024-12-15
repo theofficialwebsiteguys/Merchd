@@ -1,10 +1,16 @@
 .checkout-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column; /* Default to column for stacking */
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
   gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .checkout-container {
+    flex-direction: row; /* Row layout for larger screens */
+  }
 }
 
 .form-section,
@@ -14,6 +20,7 @@
   background: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  min-height: 100%;
 }
 
 h2 {
@@ -29,10 +36,11 @@ button {
   cursor: pointer;
   border-radius: 5px;
   margin-top: 10px;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #fcb69f;
+  background-color: #fc8569;
 }
 
 input {

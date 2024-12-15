@@ -3,7 +3,7 @@
   
     <div class="cart-empty" *ngIf="cart.length === 0">
       <p>Your cart is empty. Add some items to make it happy!</p>
-      <a routerLink="/products" class="shop-more-button">Shop More</a>
+      <a routerLink="/products" [queryParams]="{ category: 'ALL'}" class="shop-more-button">Shop More</a>
     </div>
   
     <div class="cart-items" *ngIf="cart.length > 0">

@@ -4,12 +4,7 @@
       <form (ngSubmit)="submitShippingInfo()">
         <div>
           <label for="name">Name</label>
-          <input
-            id="name"
-            [(ngModel)]="shippingInfo.name"
-            name="name"
-            required
-          />
+          <input id="name" [(ngModel)]="shippingInfo.name" name="name" required />
         </div>
         <div>
           <label for="address">Address</label>
@@ -51,11 +46,11 @@
             required
           />
         </div>
-        <button type="submit">Checkout</button>
+        <button type="submit" (click)="scrollToPayment()">Checkout</button>
       </form>
     </div>
   
-    <div class="checkout-section">
+    <div class="checkout-section" id="payment-section">
       <h2>Payment</h2>
       <div id="checkout"></div>
     </div>

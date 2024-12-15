@@ -19,9 +19,34 @@ export class ProductListComponent {
   products: any[] = []; // Original unfiltered product list
   showFilters: boolean = false; // Controls the visibility of the filter sidebar
   error: string | null = null;
+  
 
   inStockOnly: boolean = false; // Tracks if "In stock" filter is applied
   priceFilter: string | null = null; // Tracks selected price range
+
+  categoryContent: { [key: string]: { title: string; subtitle: string } } = {
+    CROCHET: {
+      title: 'Creative Crochet Designs',
+      subtitle: 'Unique, handcrafted crochet items for kids with a playful and imaginative twist.'
+    },
+    DECORATIONS: {
+      title: 'Adorable Room Decorations',
+      subtitle: 'Brighten your child’s space with charming, custom-made decorations.'
+    },
+    'STUFFED-ANIMALS': {
+      title: 'Huggable Stuffed Animals',
+      subtitle: 'Cuddly companions handcrafted with love for your little ones.'
+    },
+    CLOTHING: {
+      title: 'Charming Children’s Clothing',
+      subtitle: 'Stylish and comfortable custom outfits for your young fashionistas.'
+    },
+    ALL: {
+      title: 'Explore Our Full Collection',
+      subtitle: 'A wide variety of handcrafted products designed to inspire creativity and joy for kids of all ages.'
+    }
+  };
+
 
   constructor(
     private productService: ProductService,
@@ -57,6 +82,14 @@ export class ProductListComponent {
         });
       }
     });
+  }
+
+  getSectionTitle(): string {
+    return this.categoryContent[this.currentCategory || 'default']?.title || '';
+  }
+
+  getSectionSubtitle(): string {
+    return this.categoryContent[this.currentCategory || 'default']?.subtitle || '';
   }
 
   applyFilters(): void {

@@ -53,6 +53,14 @@ export class CheckoutComponent {
     });
   }
 
+  scrollToPayment() {
+    const paymentSection = document.getElementById('payment-section');
+    if (paymentSection) {
+      paymentSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+  
+  
   submitShippingInfo() {
     this.shippingSubmitted = true;
 
