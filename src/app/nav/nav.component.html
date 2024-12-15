@@ -43,7 +43,15 @@
 <!-- Slide-in Menu -->
 <div class="slide-in-menu" [class.active]="menuOpen">
   <div class="slide-in-menu-content">
+    <!-- Logo Section -->
+    <div class="menu-logo">
+      <img src="assets/HollisHobbys-logo.png" alt="Hollis Hobbys Logo" class="menu-logo-img">
+    </div>
+
+    <!-- Close Button -->
     <button class="close-button" (click)="toggleMenu()">&times;</button>
+
+    <!-- Menu Items -->
     <ul>
       <li *ngFor="let menuItem of menu">
         <a class="nav-link" [routerLink]="menuItem.route" [queryParams]="{ category: menuItem.category }" (click)="closeMenu()">
@@ -51,5 +59,10 @@
         </a>
       </li>
     </ul>
+
+    <!-- Cart Icon -->
+    <a class="cart-link" routerLink="/cart">
+      <i class="fas fa-shopping-cart"></i> <span>Cart</span>
+    </a>
   </div>
 </div>
