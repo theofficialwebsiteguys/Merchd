@@ -15,4 +15,10 @@ export class FooterComponent {
   route(route: string){
     this.router.navigate([route]);
   }
+
+  scrollToBanner(): void {
+    this.router.navigate(['/'], {
+      fragment: 'banner', // Navigate to the banner fragment
+    });
+  }
 }

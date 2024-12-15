@@ -1,0 +1,23 @@
+.breadcrumb {
+    font-size: 0.9rem;
+    color: #555;
+    background: #f9f9f9;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    a {
+      color: #fcb69f;
+      text-decoration: none;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #e05555;
+      }
+    }
+
+    span {
+      color: #333;
+      font-weight: bold;
+    }
+  }

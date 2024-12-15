@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { ProductService } from '../product.service';
 import { CommonModule, Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CartService } from '../cart.service';
+import { BreadcrumbComponent } from '../breadcrumb/breadcrumb.component';
+import { ProductGalleryComponent } from '../product-gallery/product-gallery.component';
 
 @Component({
   selector: 'app-product-display',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule, BreadcrumbComponent, ProductGalleryComponent],
   templateUrl: './product-display.component.html',
   styleUrl: './product-display.component.scss'
 })
@@ -18,7 +21,15 @@ export class ProductDisplayComponent {
   customText: string = '';
   quantity: number = 1;
 
-  constructor(private productService: ProductService, private location: Location) {}
+  
+  uploadedImage: FormData | null = null;
+  customDescription: string = ''
+
+  showToastMessage: boolean = false;
+
+  activeImageIndex = 0; // Start with the first image
+
+  constructor(private productService: ProductService, private location: Location, private cartService: CartService) {}
 
   ngOnInit(): void {
     this.product = this.productService.getSelectedProduct();
@@ -37,19 +48,46 @@ export class ProductDisplayComponent {
   }
 
   addToCart(): void {
-    const cartItem = {
-      product: this.product,
-      quantity: this.quantity,
-      customization: {
-        color: this.selectedColor,
-        text: this.customText
-      }
-    };
-    console.log('Item added to cart:', cartItem);
-    // Add functionality to store cart item
+    this.cartService.addToCart({
+      id: this.product.id,
+      name: this.product.name,
+      price: this.product.price,
+      image: this.product.display_image,
+      customDescription: this.customDescription,
+      quantity: this.quantity
+    });
+
+    this.showToast();
   }
+  
+
+
+  showToast() {
+    this.showToastMessage = true;
+
+    // Hide toast after 3 seconds
+    setTimeout(() => {
+      this.showToastMessage = false;
+    }, 3000);
+  }
+
 
   goBack(): void {
     this.location.back();
   }
+
+  isCustomizationComplete(): boolean {
+    // Ensure all customization fields are filled
+    return this.customDescription.trim().length > 0;
+  }
+  
+  // Trigger file input programmatically
+  triggerFileUpload(): void {
+    const fileInput = document.querySelector<HTMLInputElement>('#fileInput');
+    if (fileInput) {
+      fileInput.click();
+    }
+  }
+
+
 }

@@ -1,7 +1,7 @@
 /* Main Section */
 .product-list {
   padding: 40px 20px;
-  font-family: 'Poppins', sans-serif;
+  
   color: #333;
   max-width: 1200px;
   margin: 0 auto;
@@ -69,7 +69,7 @@
 }
 
 .filter-group a:hover {
-  color: #ff6b6b;
+  color: #fcb69f;
 }
 
 /* Product Grid */
@@ -137,7 +137,7 @@
 }
 
 .wishlist-icon:hover {
-  color: #ff6b6b;
+  color: #fcb69f;
 }
 
 /* Responsive Adjustments */
@@ -229,4 +229,74 @@
   .filter-sidebar:not(.active) + .product-grid {
     margin-top: 10px; /* Reduced margin when filters are hidden */
   }
+}
+
+/* General Button Styles */
+.product-button button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+/* Customize Button */
+.customize-button {
+  background-color: #fcb69f;
+  color: white;
+}
+
+.customize-button:hover {
+  background-color: #ffaa8e;
+}
+
+/* Add to Cart Button */
+.add-to-cart-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.add-to-cart-button:hover {
+  background-color: #43a047;
+}
+
+/* Out of Stock Button */
+.out-of-stock-button {
+  background-color: #ccc;
+  color: #777;
+  cursor: not-allowed;
+}
+
+.filter-reset {
+  margin-top: 20px;
+}
+
+.filter-reset button {
+  padding: 10px 20px;
+  background-color: #fcb69f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-reset button:hover {
+  background-color: #ffaa8e;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: scale(1.1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Icon styling */
+.product-button .fa-check {
+  color: white;
+  font-size: 1.2rem;
 }

@@ -6,6 +6,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDisplayComponent } from './product-display/product-display.component';
+import { SuccessComponent } from './success/success.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },  // Set HomeComponent to the root path
@@ -16,4 +17,5 @@ export const routes: Routes = [
     { path: 'cart', component: CartComponent },
     { path: 'checkout', component: CheckoutComponent },
     { path: 'contact', component: ContactComponent },
+    { path: 'success', component: SuccessComponent }
 ];

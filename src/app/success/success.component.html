@@ -1,0 +1,24 @@
+<div class="success-container">
+  <div class="success-content">
+    <div class="checkmark-icon">&#10003;</div>
+    <h1 class="success-title">Thank You for Your Purchase!</h1>
+    <p class="success-message">Your order has been successfully processed. A confirmation email has been sent to your inbox with all the details.</p>
+
+    <div class="order-details" *ngIf="orderDetails">
+      <h3 class="order-title">Order Summary:</h3>
+      <ul class="order-list">
+        <li><strong>Order ID:</strong> {{ orderDetails.id }}</li>
+        <li><strong>Total Paid:</strong> {{ orderDetails.amountTotal | currency }}</li>
+        <li><strong>Estimated Delivery:</strong> {{ orderDetails.estimatedDelivery || '5-7 business days' }}</li>
+        <li><strong>Items:</strong></li>
+        <ul class="item-list">
+          <li *ngFor="let item of orderDetails.items">
+            {{ item.quantity }}x {{ item.name }}
+          </li>
+        </ul>
+      </ul>
+    </div>
+
+    <button mat-raised-button color="primary" class="action-button" routerLink="/">Continue Shopping</button>
+  </div>
+</div>

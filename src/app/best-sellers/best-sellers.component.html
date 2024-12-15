@@ -4,17 +4,56 @@
 </div>
 
 <div class="product-grid">
-  <div class="product-card" *ngFor="let product of filteredProducts" (click)="viewProduct(product)"> 
+    <div class="product-card" *ngFor="let product of bestSellers" (click)="viewProduct(product)"> 
+      <div class="image-wrapper">
+        <img [src]="product.display_image" alt="{{ product.name }}" />
+        <div class="product-badge" *ngIf="product.isCustomizable">
+          Customizable
+        </div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">{{ product.name }}</h3>
+        <p class="product-category">{{ product.Category.name }}</p>
+        <p class="product-price">US${{ product.price }}</p>
+      </div>
+  
+    <div class="product-button">
+      <button
+        *ngIf="product.quantity > 0; else outOfStock"
+        (click)="handleProductAction(product, $event)"
+        [ngClass]="{
+          'customize-button': product.is_customizable,
+          'add-to-cart-button': !product.is_customizable
+        }"
+        [disabled]="product.isAddingToCart"
+      >
+        <span *ngIf="!product.isAddingToCart">
+          {{ product.is_customizable ? 'Customize Product' : 'Add to Cart' }}
+        </span>
+        <span *ngIf="product.isAddingToCart">
+          <i class="fas fa-check"></i> Added to Cart!
+        </span>
+      </button>
+  
+      <ng-template #outOfStock>
+        <button class="out-of-stock-button" disabled>Out of Stock</button>
+      </ng-template>
+    </div>
+    
+    
+  </div>
+
+  <!-- <div class="product-card" *ngFor="let product of bestSellers" (click)="viewProduct(product)"> 
     <div class="image-wrapper">
-      <img [src]="product.image" alt="{{ product.title }}" />
+      <img [src]="product.display_image" alt="{{ product.name }}" />
       <div class="product-badge" *ngIf="product.isCustomizable">
         Customizable
       </div>
     </div>
     <div class="product-info">
-      <h3 class="product-title">{{ product.title }}</h3>
-      <p class="product-category">{{ product.category }}</p>
+      <h3 class="product-title">{{ product.name }}</h3>
+      <p class="product-category">{{ product.Category.name }}</p>
       <p class="product-price">US${{ product.price }}</p>
     </div>
-  </div>
+  </div> -->
 </div>

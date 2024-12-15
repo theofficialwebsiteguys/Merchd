@@ -15,38 +15,73 @@
     <!-- Sidebar Filters -->
     <aside class="filter-sidebar" [class.collapsed]="!showFilters">
       <h3>Filters</h3>
+    
+      <!-- Availability Filter -->
       <div class="filter-group">
         <h4>Availability</h4>
         <label>
-          <input type="checkbox" /> In stock
+          <input type="checkbox" [(ngModel)]="inStockOnly" (change)="applyFilters()" /> In stock
         </label>
       </div>
+    
+      <!-- Price Filters -->
       <div class="filter-group">
         <h4>Price</h4>
         <ul>
-          <li><a href="#">Under $25</a></li>
-          <li><a href="#">$25 to $50</a></li>
-          <li><a href="#">$50 to $100</a></li>
+          <li><a (click)="filterByPrice('under25')">Under $25</a></li>
+          <li><a (click)="filterByPrice('25to50')">$25 to $50</a></li>
+          <li><a (click)="filterByPrice('50to100')">$50 to $100</a></li>
         </ul>
       </div>
+    
+      <!-- Reset Filters Button -->
+      <div class="filter-reset">
+        <button (click)="resetFilters()">Reset Filters</button>
+      </div>
     </aside>
+    
+    
 
     <!-- Product Grid -->
     <div class="product-grid">
       <div class="product-card" *ngFor="let product of filteredProducts" (click)="viewProduct(product)">
         <div class="image-wrapper">
-          <img [src]="product.image" alt="{{ product.title }}" />
+          <img [src]="product.display_image" alt="{{ product.name }}" />
         </div>
         <div class="product-info">
-          <h3 class="product-title">{{ product.title }}</h3>
-          <p class="product-country">Handcrafted by {{ product.country }}</p>
-          <p class="product-reviews">{{ product.reviews }} reviews</p>
+          <h3 class="product-title">{{ product.name }}</h3>
+          <p class="product-country">{{ product.Category.name }}</p>
           <p class="product-price">${{ product.price }}</p>
         </div>
-        <div class="wishlist-icon">
-          <i class="far fa-heart"></i>
+      
+        <div class="product-button">
+          <button
+            *ngIf="product.quantity > 0; else outOfStock"
+            (click)="handleProductAction(product, $event)"
+            [ngClass]="{
+              'customize-button': product.is_customizable,
+              'add-to-cart-button': !product.is_customizable
+            }"
+            [disabled]="product.isAddingToCart"
+          >
+            <span *ngIf="!product.isAddingToCart">
+              {{ product.is_customizable ? 'Customize Product' : 'Add to Cart' }}
+            </span>
+            <span *ngIf="product.isAddingToCart">
+              <i class="fas fa-check"></i> Added to Cart!
+            </span>
+          </button>
+        
+          <!-- Out of Stock Display -->
+          <ng-template #outOfStock>
+            <button class="out-of-stock-button" disabled>Out of Stock</button>
+          </ng-template>
         </div>
+        
+        
       </div>
+      
+      
     </div>
   </div>
 </section>

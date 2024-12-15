@@ -26,6 +26,20 @@
   }
 }
 
+.contain{
+  width: 80%; /* Limit the navbar content to 80% of the page width */
+  margin: auto; /* Center the navbar horizontally */
+
+  @media (max-width: 992px) {
+    width: 100%;
+  }
+}
+
+.navbar-icons {
+  width: 120px;
+  font-size: 20px;
+}
+
 /* Slide-in Menu */
 .slide-in-menu {
   position: fixed;

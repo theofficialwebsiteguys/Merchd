@@ -26,18 +26,6 @@ export class ContactComponent {
       comment: this.comment
     };
 
-    // this.http.post('http://localhost:3000/send-email', formData)
-    //   .subscribe(response => {
-    //     console.log('Email sent successfully', response);
-    //   }, error => {
-    //     console.error('Error sending email', error);
-    //   });
 
-      this.http.post('https://limited-hype-server-fc852c1e4c1b.herokuapp.com/send-email', formData)
-      .subscribe(response => {
-        console.log('Email sent successfully', response);
-      }, error => {
-        console.error('Error sending email', error);
-      });
   }
 }

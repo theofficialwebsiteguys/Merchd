@@ -1,5 +1,6 @@
 export const environment = {
     production: false,
-    stripePublicKey: 'pk_test_51POOsRAtSJLPfYWYi6NnxCtQ1hBBJwgdLm6Mh8ARbkWDsSvI0naQxwMYRRPKxoPKRel3Jx22ovNHywU2AagBD1sB00Ueys9YAE'
+    api_url: 'https://ecommerce-api-db-a62e801c0f22.herokuapp.com/api',
+    stripePublicKey: 'pk_test_51QUtysIokBL8AG53jGjmeRtOdC3fQzboBQf8YMC4IdvoAxld2Ey9uVqgjce3cRvlzZG7ZxJzkKQbTJiFOfbmAHlw00fJEI31b1'
   };
   

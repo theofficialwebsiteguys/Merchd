@@ -20,8 +20,7 @@ export class NavComponent {
       { title: "Clothing", category: "CLOTHING", route: "/products" },
       { title: "Stuffed Animals", category: "STUFFED-ANIMALS", route: "/products" },
       { title: "Decorations", category: "DECORATIONS", route: "/products" },
-      { title: "Crochet", category: "CROCHET", route: "/products" },
-      { title: "Contact", category: "", route: "/contact" }
+      { title: "Crochet", category: "CROCHET", route: "/products" }
     ];
   
     toggleMenu() {

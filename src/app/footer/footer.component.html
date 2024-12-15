@@ -2,37 +2,21 @@
   <div class="footer-container">
     <div class="footer-logo">
       <img src="assets/HollisHobby-logo.png" alt="Hollis Hobby Logo" height="100" />
-      <p class="footer-location">Stony Point, NY</p>
-      <p class="footer-subscribe">Sign up for exclusive updates and offers!</p>
-      <div class="subscribe-form">
-        <input type="email" placeholder="Your email" class="subscribe-input" />
-        <button class="subscribe-button">Subscribe</button>
-      </div>
     </div>
 
     <div class="footer-links">
       <div class="footer-column">
         <h3>About Us</h3>
         <ul>
-          <li><a href="#">Our Story</a></li>
-          <li><a href="#">Meet the Maker</a></li>
-          <li><a href="#">Press</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h3>Customer Care</h3>
-        <ul>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">FAQs</a></li>
-          <li><a href="#">Returns & Refunds</a></li>
+          <li><a routerLink="/contact">Contact Us</a></li>
         </ul>
       </div>
       <div class="footer-column">
         <h3>Shop</h3>
         <ul>
-          <li><a href="#">All Products</a></li>
-          <li><a href="#">Custom Gifts</a></li>
-          <li><a href="#">Gift Cards</a></li>
+          <li><a routerLink="/products" [queryParams]="{ category: 'ALL'}">All Products</a></li>
+          <li><a routerLink="/products" [queryParams]="{ category: 'DECORATIONS'}">Decorations</a></li>
+          <li><a routerLink="/products" [queryParams]="{ category: 'CROCHET'}">Crochet</a></li>
         </ul>
       </div>
     </div>
@@ -40,8 +24,8 @@
     <div class="footer-social">
       <h3>Follow Us</h3>
       <div class="social-icons">
-        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/holli.goldsteinfinn" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/hollfinn418/" target="_blank"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
   </div>
@@ -49,11 +33,9 @@
   <div class="footer-bottom">
     <p>Copyright &#64; 2024 Hollis Hobby</p>
     <div class="footer-policies">
-      <a href="#">Privacy Policy</a>
+      <a href="https://storage.googleapis.com/the-website-guys/Hollis-Hobbys/Holli's%20Hobby's%20Privacy%20Policy.pdf" target="_blank">Privacy Policy</a>
       <span>|</span>
-      <a href="#">Terms of Service</a>
-      <span>|</span>
-      <a href="#">Shipping Policy</a>
+      <a href="https://storage.googleapis.com/the-website-guys/Hollis-Hobbys/Holli's%20Hobby's%20Terms%20of%20Service.pdf" target="_blank">Terms of Service</a>
     </div>
   </div>
 </footer>

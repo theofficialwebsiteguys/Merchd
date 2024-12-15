@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
+body{
+  font-family: "Delius", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
 
 .back-button {
     background: none;
@@ -12,7 +17,6 @@
     align-items: center;
     margin-bottom: 15px;
     transition: transform 0.3s ease;
-    margin-bottom: 50px;
   }
   
   .back-button i {
