@@ -1,17 +1,18 @@
 /* Navbar */
 .custom-navbar {
-  background-color: #F9F0D9;
+  background-color: black;
   padding: 10px 20px;
   position: sticky;
   top: 0;
   z-index: 1020;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Subtle shadow */
 
   .navbar-toggler {
     border: none;
     background: none;
     font-size: 24px;
-    color: #444;
     display: none; /* Hidden by default */
+    color: white;
   }
 
   @media (max-width: 992px) {
@@ -51,14 +52,19 @@
   right: -300px; /* Hidden by default */
   width: 300px;
   height: 100%;
-  background-color: #FFF8E7;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.15);
+  background-color: rgb(255, 255, 255); /* Black with slight transparency */
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.8); /* Strong shadow for depth */
   transition: right 0.3s ease-in-out;
-  z-index: 1050;
+  z-index: 1050; /* Ensure it's above other elements */
+}
 
-  &.active {
-    right: 0; /* Slide in when active */
-  }
+.slide-in-menu.active {
+  right: 0; /* Slide in when active */
+}
+
+/* Prevent scrolling when menu is active */
+body.menu-open {
+  overflow: hidden; /* Prevent scrolling */
 }
 
 .slide-in-menu-content {
@@ -120,8 +126,8 @@
     transition: color 0.3s, border-bottom 0.3s;
 
     &:hover {
-      color: #fcb69f;
-      border-bottom: 2px solid #fcb69f;
+      color: #000000;
+      border-bottom: 2px solid #000000;
     }
   }
 }
@@ -131,7 +137,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fcb69f;
   color: #FFF;
   font-size: 16px;
   font-weight: bold;
@@ -172,7 +177,6 @@
 
 /* Social Bar */
 .social-bar {
-  background-color: #FFF8E7;
   padding: 10px 20px;
   border-bottom: 1px solid #EDEDED;
   display: flex;
@@ -181,7 +185,7 @@
 }
 
 .free-ship {
-  color: #444;
+  color: #ffffff;
   font-weight: 500;
   font-size: 14px;
   padding-left: 68px;
@@ -190,7 +194,7 @@
 
 .social-icons a {
   margin-left: 10px;
-  color: #444;
+  color: #ffffff;
   transition: color 0.3s;
 }
 
@@ -207,4 +211,17 @@
     padding-left: 0; /* Remove left padding to center align */
     width: 100%; /* Ensure it takes full width for centering */
   }
+}
+
+
+.nav-link {
+  font-size: 22px;
+  color: white;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+
+.navbar-nav{
+  display: flex;
+  gap: 120px;
 }

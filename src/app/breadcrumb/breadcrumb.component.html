@@ -1,6 +1,6 @@
 <div class="breadcrumb">
     <a routerLink="/">Home</a> /
-    <a routerLink="/products" [queryParams]="{ category: categoryName }">{{ categoryName }}</a> /
+    <a routerLink="/products" [queryParams]="{ category: categoryName.toUpperCase() }">{{ categoryName }}</a> /
     <span>{{ productName }}</span>
   </div>
   

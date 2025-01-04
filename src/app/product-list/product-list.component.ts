@@ -1,10 +1,11 @@
 import { CommonModule, Location } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { CategoryCardsComponent } from '../category-cards/category-cards.component';
 import { ProductService } from '../product.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../cart.service';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -14,36 +15,31 @@ import { CartService } from '../cart.service';
   styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent {
-  currentCategory: string | null = null;
+  @Input() currentCategory: string | null = null;
   filteredProducts: any[] = []; // Filtered product list
   products: any[] = []; // Original unfiltered product list
   showFilters: boolean = false; // Controls the visibility of the filter sidebar
   error: string | null = null;
-  
 
   inStockOnly: boolean = false; // Tracks if "In stock" filter is applied
   priceFilter: string | null = null; // Tracks selected price range
 
   categoryContent: { [key: string]: { title: string; subtitle: string } } = {
-    CROCHET: {
-      title: 'Creative Crochet Designs',
-      subtitle: 'Unique, handcrafted crochet items for kids with a playful and imaginative twist.'
+    'SPORTS-APPAREL': {
+      title: 'Shop Sports Apparel',
+      subtitle: ''
     },
-    DECORATIONS: {
-      title: 'Adorable Room Decorations',
-      subtitle: 'Brighten your child’s space with charming, custom-made decorations.'
+    COLLECTIBLES: {
+      title: 'Shop Collectibles',
+      subtitle: ''
     },
-    'STUFFED-ANIMALS': {
-      title: 'Huggable Stuffed Animals',
-      subtitle: 'Cuddly companions handcrafted with love for your little ones.'
-    },
-    CLOTHING: {
-      title: 'Charming Children’s Clothing',
-      subtitle: 'Stylish and comfortable custom outfits for your young fashionistas.'
+    OTHER: {
+      title: 'Shop Other',
+      subtitle: ''
     },
     ALL: {
       title: 'Explore Our Full Collection',
-      subtitle: 'A wide variety of handcrafted products designed to inspire creativity and joy for kids of all ages.'
+      subtitle: ''
     }
   };
 
@@ -55,32 +51,49 @@ export class ProductListComponent {
     private cartService: CartService
   ) {}
 
-  toggleFilters() {
-    const filterSidebar = document.querySelector('.filter-sidebar');
-    filterSidebar?.classList.toggle('active');
+  ngOnInit(): void {
+    // Listen for route changes to update the category
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.handleCategoryChange(); // React to query parameter changes
+      });
+
+    // Initial load
+    this.handleCategoryChange();
   }
 
-  ngOnInit() {
-    this.route.queryParamMap.subscribe((params) => {
-      this.currentCategory = params.get('category');
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['currentCategory'] && !changes['currentCategory'].firstChange) {
+      this.refreshComponent(); // React to input changes
+    }
+  }
 
-      if (this.currentCategory) {
-        // Fetch products based on category
-        const fetchProducts = this.currentCategory === 'ALL'
-          ? this.productService.getAllProducts()
-          : this.productService.getProductsByCategory(this.currentCategory);
+  handleCategoryChange(): void {
+    // Get the category from query parameters
+    const categoryFromParams = this.route.snapshot.queryParamMap.get('category');
+    this.currentCategory = categoryFromParams || this.currentCategory || 'ALL'; // Prioritize query params
 
-        fetchProducts.subscribe({
-          next: (data) => {
-            this.products = data; // Store original product list
-            this.filteredProducts = [...this.products]; // Initialize filtered list
-            console.log(this.filteredProducts);
-          },
-          error: (err) => {
-            this.error = err;
-          },
-        });
-      }
+    // Refresh component data
+    this.refreshComponent();
+  }
+
+  refreshComponent(): void {
+    // Fetch products based on the current category
+    const fetchProducts =
+      this.currentCategory === 'ALL'
+        ? this.productService.getAllProducts()
+        : this.productService.getProductsByCategory(this.currentCategory!);
+
+    fetchProducts.subscribe({
+      next: (data) => {
+        this.products = data;
+        this.filteredProducts = [...this.products];
+      },
+      error: (err) => {
+        this.error = err;
+        console.error('Error fetching products:', err);
+      },
     });
   }
 
@@ -91,46 +104,6 @@ export class ProductListComponent {
   getSectionSubtitle(): string {
     return this.categoryContent[this.currentCategory || 'default']?.subtitle || '';
   }
-
-  applyFilters(): void {
-    // Start with the original product list
-    let filtered = [...this.products];
-
-    // Filter by availability
-    if (this.inStockOnly) {
-      filtered = filtered.filter((product) => product.quantity > 0);
-    }
-
-    // Filter by price range
-    if (this.priceFilter) {
-      switch (this.priceFilter) {
-        case 'under25':
-          filtered = filtered.filter((product) => product.price < 25);
-          break;
-        case '25to50':
-          filtered = filtered.filter((product) => product.price >= 25 && product.price <= 50);
-          break;
-        case '50to100':
-          filtered = filtered.filter((product) => product.price > 50 && product.price <= 100);
-          break;
-      }
-    }
-
-    // Update the filtered products
-    this.filteredProducts = filtered;
-  }
-
-  filterByPrice(priceRange: string): void {
-    this.priceFilter = priceRange; // Set the selected price range
-    this.applyFilters(); // Reapply all filters
-  }
-
-  resetFilters(): void {
-    this.inStockOnly = false; // Reset the "In Stock" filter
-    this.priceFilter = null; // Reset the price filter
-    this.filteredProducts = [...this.products]; // Reset to the original product list
-  }
-  
 
   viewProduct(product: any): void {
     this.productService.setSelectedProduct(product); // Set the selected product

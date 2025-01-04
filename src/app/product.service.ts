@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, map, Observable, of, tap, throwError } from 'rxjs';
 import { Product } from './models/product';
@@ -44,8 +44,11 @@ export class ProductService {
       console.log('Products already loaded from local storage.');
       return;
     }
+    const headers = new HttpHeaders({
+      'x-auth-api-key': environment.api_key,
+    });
 
-    this.http.get<any>(`${environment.api_url}/products/all-products`).subscribe(
+    this.http.get<any>(`${environment.api_url}/products/all-products`, { headers }).subscribe(
       (products) => {
         this.products.next(products.data); // Update BehaviorSubject
         this.saveProductsToLocalStorage(products.data); // Save to local storage
@@ -60,12 +63,26 @@ export class ProductService {
   getAllProducts(): Observable<any> {
     return this.products$;
   }
-  
+
   getProductsByCategory(category: string): Observable<any> {
     return this.products$.pipe(
-      map((products) => products.filter((product: any) => product.Category.name.toUpperCase() === category.toUpperCase()))
+      map((products) => {
+        return products.filter((product: any) => {
+          const productCategory = product?.Category?.name?.toUpperCase() || null; // Null if no category
+          const targetCategory = category.toUpperCase();
+  
+          // If category is 'OTHER', return products without a category
+          if (targetCategory === 'OTHER') {
+            return !productCategory;
+          }
+  
+          // Otherwise, return products matching the category
+          return productCategory === targetCategory;
+        });
+      })
     );
   }
+  
   
   getBestSellers(): Observable<any> {
     return this.products$.pipe(

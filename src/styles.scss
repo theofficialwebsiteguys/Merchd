@@ -2,15 +2,17 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
 body{
-  font-family: "Delius", cursive;
-  font-weight: 400;
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
   font-style: normal;
+  background-color: black;
 }
 
 .back-button {
     background: none;
     border: none;
-    color: #000000;
+    color: #ffffff;
     font-size: 18px;
     cursor: pointer;
     display: flex;

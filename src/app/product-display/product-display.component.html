@@ -4,12 +4,17 @@
   </button>
 
   <div class="product-header">
-    <app-breadcrumb [categoryName]="product.Category.name" [productName]="product.name"></app-breadcrumb>
+    <app-breadcrumb 
+      [categoryName]="product?.Category?.name ?? 'Other'" 
+      [productName]="product?.name">
+    </app-breadcrumb>
   </div>
+  
 
   <div class="product-content">
     <div class="product-gallery">
-      <app-product-gallery [images]="product.Images" [productName]="product.name"></app-product-gallery>
+      <img [src]="product.display_image" alt="Display Image" width="500">
+      <!-- <app-product-gallery [images]="product.Images" [productName]="product.name"></app-product-gallery> -->
     </div>
 
     <div class="product-details">

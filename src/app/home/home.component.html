@@ -1,12 +1,17 @@
 <app-hero></app-hero>
 
-<div class="section-header">
-    <h2 class="section-title">Shop by Category</h2>
-    <p class="section-subtitle">Anything from Baby Products to stuffed animals.</p>
-  </div>
-<app-category-cards></app-category-cards>
 
-<app-best-sellers></app-best-sellers>
+<!-- <app-category-cards></app-category-cards> -->
+
+<!-- <app-best-sellers></app-best-sellers> -->
+
+<app-product-list [currentCategory]="'SPORTS-APPAREL'"></app-product-list>
+
+<app-product-list [currentCategory]="'COLLECTIBLES'"></app-product-list>
+
+<app-product-list [currentCategory]="'OTHER'"></app-product-list>
+
+<app-product-list [currentCategory]="'ALL'"></app-product-list>
 
 <app-banner id="banner"></app-banner>
   

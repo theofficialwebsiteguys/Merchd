@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -97,13 +97,19 @@ export class CartService {
     );
   }
 
-  checkout(shippingInfo: any) {
+  checkout() {
     const line_items = this.getCart();
     console.log(line_items)
     return this.http
       .post<{ clientSecret: string }>(
         `${environment.api_url}/checkout/checkout`,
-        { line_items, shippingInfo }
+        { line_items },
+        {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Stripe-Version': '2024-04-10;checkout_server_update_beta=v1', // Add the required Stripe beta version header
+          }),
+        }
       )
       .subscribe({
         next: (response) => {

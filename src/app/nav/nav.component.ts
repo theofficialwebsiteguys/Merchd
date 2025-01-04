@@ -17,10 +17,9 @@ export class NavComponent {
     menuOpen = false;
 
     menu = [
-      { title: "Clothing", category: "CLOTHING", route: "/products" },
-      { title: "Stuffed Animals", category: "STUFFED-ANIMALS", route: "/products" },
-      { title: "Decorations", category: "DECORATIONS", route: "/products" },
-      { title: "Crochet", category: "CROCHET", route: "/products" }
+      { title: "Merch", category: "SPORTS-APPAREL", route: "/products" },
+      { title: "Collectibles", category: "COLLECTIBLES", route: "/products" },
+      { title: "Other", category: "OTHER", route: "/products" }
     ];
   
     toggleMenu() {

@@ -1,52 +1,39 @@
+/* Center the checkout container */
 .checkout-container {
   display: flex;
-  flex-direction: column; /* Default to column for stacking */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4; /* Light gray background for contrast */
   padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  gap: 20px;
 }
 
-@media (min-width: 768px) {
-  .checkout-container {
-    flex-direction: row; /* Row layout for larger screens */
-  }
+/* Card layout for the checkout */
+.checkout-card {
+  width: 100%;
+  background-color: #ffffff; /* White background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 30px; /* Inner padding */
+  text-align: center; /* Center-align content */
 }
 
-.form-section,
-.checkout-section {
-  flex: 1;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  min-height: 100%;
+/* Header styling */
+.checkout-header {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #333333; /* Dark gray for title */
 }
 
-h2 {
-  color: #333;
+/* Subtext styling */
+.checkout-subtext {
+  font-size: 1rem;
+  color: #777777; /* Lighter gray for subtext */
   margin-bottom: 20px;
 }
 
-button {
-  background-color: #fcb69f;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
+/* Stripe checkout container */
+.stripe-checkout {
   margin-top: 10px;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #fc8569;
-}
-
-input {
-  width: calc(100% - 10px);
   padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }

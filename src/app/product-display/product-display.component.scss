@@ -30,24 +30,23 @@
 
   .product-details {
     flex-grow: 1;
+    color: #ffffff;
 
     .product-title {
       font-size: 2rem;
       font-weight: 700;
-      color: #333;
+
       margin-bottom: 10px;
     }
 
     .product-price {
       font-size: 1.5rem;
       font-weight: 700;
-      color: #333;
       margin-bottom: 20px;
     }
 
     .product-description {
       font-size: 1.1rem;
-      color: #555;
       margin-bottom: 30px;
       line-height: 1.6;
     }
@@ -71,7 +70,7 @@
 
       .validation-message {
         margin-top: 10px;
-        color: #fcb69f;
+        color: #ffffff;
         font-size: 0.9rem;
       }
     }
@@ -88,10 +87,9 @@
 
         button {
           padding: 8px 12px;
-          background: #fcb69f;
+          background: #ffffff;
           border: none;
-          border-radius: 5px;
-          color: #fff;
+          color: #000000;
           cursor: pointer;
         }
 
@@ -100,22 +98,20 @@
           text-align: center;
           font-size: 1rem;
           border: 1px solid #ddd;
-          border-radius: 5px;
         }
       }
 
       .add-to-cart-button {
         padding: 10px 20px;
-        background: #fcb69f;
-        color: #fff;
+        background: #ffffff;
+        color: #000000;
         border: none;
-        border-radius: 5px;
         font-size: 1rem;
         cursor: pointer;
         transition: background 0.3s;
 
         &:hover {
-          background: #e05555;
+          background: #383838;
         }
 
         &:disabled {

@@ -1,328 +1,63 @@
 /* Hero Section */
 .hero {
-    position: relative;
-    background: linear-gradient(135deg, #FF7F50, #FFB6C1); /* Vibrant gradient */
-    color: white;
-    text-align: center;
-    padding: 120px 20px;
-    overflow: hidden;
-    isolation: isolate; /* Keep background images separate from content */
-  }
-  
-  .hero-content {
-    z-index: 2;
-    position: relative;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  
-  .hero-title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add this line */
-  }
-  
-  .hero-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-    
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Add this line */
-  }
-  
-  
-  .btn-primary {
-    padding: 15px 30px;
-    background-color: white;
-    color: #FF7F50;
-    font-size: 1.25rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-  }
-  
-  .btn-primary:hover {
-    background-color: #ffaa8e;
-    color: white;
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  }
+  position: relative;
+  height: 60vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
 
-  
-  .hero {
-    position: relative;
-    background: linear-gradient(135deg, #FF7F50, #FFB6C1); /* Vibrant gradient */
-    color: white;
-    text-align: center;
-    padding: 120px 20px;
-    overflow: hidden; /* Ensures images stay inside the hero */
-  }
-  
-  .hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none; /* Prevent interference with interactions */
-  }
-  
-  .decorative-image {
-    position: absolute;
-    opacity: 0.5; /* Softer visibility */
-    border-radius: 15px; /* Smooth corners */
-    transform: scale(1) rotate(0deg); /* Initial placement */
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-  
-  /* Image Placement */
-  .image1 {
-    top: 0%;
-    left: 0%;
-    width: 300px;
-    transform: rotate(0deg);
-  }
-  
-  .image2 {
-    top: 0%;
-    right: 0%;
-    width: 250px;
-    transform: rotate(5deg);
-  }
-  
-  .image3 {
-    bottom: 0%;
-    left: 11%;
-    width: 220px;
-    transform: rotate(-20deg);
-  }
-  
-  .image4 {
-    bottom: -5%;
-    right: 5%;
-    width: 200px;
-    transform: rotate(0deg);
-  }
-  
-  .image5 {
-    top: 0%;
-    left: 30%;
-    width: 250px;
-    transform: rotate(-5deg);
-  }
-  
-  .image6 {
-    top: -10%;
-    right: 25%;
-    width: 300px;
-    transform: rotate(6deg);
-  }
-  
-  .image7 {
-    bottom: -6%;
-    right: 30%;
-    width: 250px;
-    transform: rotate(-5deg);
-  }
-  
-  .image8 {
-    bottom: -10%;
-    left: 22%;
-    width: 250px;
-    transform: rotate(15deg);
-  }
-  
-  .image9 {
-    top: 0%;
-    right: 15%;
-    width: 220px;
-    transform: rotate(-3deg);
-  }
-  
-  .image10 {
-    top: -5%;
-    left: 20%;
-    width: 220px;
-    transform: rotate(20deg);
+.hero-background img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
 
-  }
-  
-  .image11 {
-    bottom: 0%;
-    right: 17%;
-    width: 250px;
-    transform: rotate(-8deg);
-  }
-  
-  /* Hover Effects for Decorative Images */
-  .hero:hover .decorative-image {
-    transform: scale(1.1); /* Slightly larger on hover */
-    opacity: 0.6; /* More visible on hover */
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    /* Image Placement */
-    .image1 {
-      top: 0%;
-      left: 0%;
-      width: 200px;
-      transform: rotate(0deg);
-    }
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  z-index: 2;
+}
 
-    .image2 {
-      top: -5%;
-      right: -5%;
-      width: 175px;
-      transform: rotate(5deg);
-    }
+.hero-content {
+  position: relative;
+  z-index: 3;
+  padding: 20px;
+}
 
-    .image3 {
-      bottom: -5%;
-      left: -5%;
-      width: 200px;
-      transform: rotate(-40deg);
-    }
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-    .image4 {
-      bottom: -5%;
-      right: -5%;
-      width: 160px;
-      transform: rotate(0deg);
-    }
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
 
-    .image5 {
-      top: -5%;
-      left: 30%;
-      width: 200px;
-      transform: rotate(-5deg);
-    }
+.btn-primary {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: #1b3d7e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
-    .image6 {
-      top: -30%;
-      right: 25%;
-      width: 300px;
-      transform: rotate(6deg);
-    }
-
-    .image7 {
-      bottom: -6%;
-      right: 30%;
-      width: 200px;
-      transform: rotate(-5deg);
-    }
-
-    .image8 {
-      bottom: -10%;
-      left: 15%;
-      width: 250px;
-      transform: rotate(15deg);
-    }
-
-    .image9 {
-      top: 0%;
-      right: 15%;
-      width: 220px;
-      transform: rotate(-3deg);
-    }
-
-    .image10 {
-      top: 10%;
-      left: 15%;
-      width: 180px;
-      transform: rotate(20deg);
-    }
-
-    .image11 {
-      bottom: 0%;
-      right: 10%;
-      width: 200px;
-      transform: rotate(-8deg);
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .image1 {
-      top: -5%;
-      left: -20%;
-      width: 200px;
-      transform: rotate(0deg);
-    }
-
-    .image2 {
-      top: -10%;
-      right: -20%;
-      width: 175px;
-      transform: rotate(5deg);
-    }
-
-    .image3 {
-      bottom: -5%;
-      left: -20%;
-      width: 200px;
-      transform: rotate(-40deg);
-    }
-
-    .image4 {
-      bottom: -5%;
-      right: -15%;
-      width: 160px;
-      transform: rotate(0deg);
-    }
-
-    .image5 {
-      top: 25%;
-      left: -10%;
-      width: 200px;
-      transform: rotate(-5deg);
-    }
-
-    .image6 {
-      top: -12%;
-      right: 18%;
-      width: 240px;
-      transform: rotate(6deg);
-    }
-
-    .image7 {
-      bottom: -15%;
-      right: 30%;
-      width: 200px;
-      transform: rotate(-5deg);
-    }
-
-    .image8 {
-      bottom: 15%;
-      left: 15%;
-      width: 240px;
-      transform: rotate(15deg);
-    }
-
-    .image9 {
-      top: 15%;
-      right: -10%;
-      width: 220px;
-      transform: rotate(-3deg);
-    }
-
-    .image10 {
-      top: 5%;
-      left: 15%;
-      width: 200px;
-      transform: rotate(20deg);
-    }
-
-    .image11 {
-      bottom: -5%;
-      right: 5%;
-      width: 200px;
-      transform: rotate(-8deg);
-    }
-  }
-  
+.btn-primary:hover {
+  background-color: #102a58;
+  transform: scale(1.05);
+}

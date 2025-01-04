@@ -12,4 +12,8 @@ import { RouterModule } from '@angular/router';
 export class BreadcrumbComponent {
   @Input() categoryName!: string;
   @Input() productName!: string;
+
+  ngOnInit(){
+    console.log(this.categoryName)
+  }
 }

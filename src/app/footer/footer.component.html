@@ -1,22 +1,23 @@
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-logo">
-      <img src="assets/HollisHobbys-logo.png" alt="Hollis Hobby Logo" height="100" />
+      <img src="assets/logo2.png" alt="Hollis Hobby Logo" height="100" />
     </div>
 
     <div class="footer-links">
       <div class="footer-column">
-        <h3>About Us</h3>
+        <h3>Shop</h3>
         <ul>
-          <li><a routerLink="/contact">Contact Us</a></li>
+          <li><a routerLink="/products" [queryParams]="{ category: 'ALL'}">Baseball</a></li>
+          <li><a routerLink="/products" [queryParams]="{ category: 'DECORATIONS'}">NASCAR</a></li>
+          <li><a routerLink="/products" [queryParams]="{ category: 'CROCHET'}">Collectibles</a></li>
+          <li><a routerLink="/products" [queryParams]="{ category: 'CROCHET'}">Other</a></li>
         </ul>
       </div>
       <div class="footer-column">
-        <h3>Shop</h3>
+        <h3>About Us</h3>
         <ul>
-          <li><a routerLink="/products" [queryParams]="{ category: 'ALL'}">All Products</a></li>
-          <li><a routerLink="/products" [queryParams]="{ category: 'DECORATIONS'}">Decorations</a></li>
-          <li><a routerLink="/products" [queryParams]="{ category: 'CROCHET'}">Crochet</a></li>
+          <li><a routerLink="/contact">Contact Us</a></li>
         </ul>
       </div>
     </div>
@@ -31,7 +32,7 @@
   </div>
 
   <div class="footer-bottom">
-    <p>Copyright &#64; 2024 Hollis Hobby</p>
+    <p>Copyright &#64; 2024 Merchd</p>
     <div class="footer-policies">
       <a href="https://storage.googleapis.com/the-website-guys/Hollis-Hobbys/Holli's%20Hobby's%20Privacy%20Policy.pdf" target="_blank">Privacy Policy</a>
       <span>|</span>

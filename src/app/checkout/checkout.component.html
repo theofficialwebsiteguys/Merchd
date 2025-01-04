@@ -1,58 +1,12 @@
 <div class="checkout-container">
-    <div class="form-section">
-      <h2>Shipping Details</h2>
-      <form (ngSubmit)="submitShippingInfo()">
-        <div>
-          <label for="name">Name</label>
-          <input id="name" [(ngModel)]="shippingInfo.name" name="name" required />
-        </div>
-        <div>
-          <label for="address">Address</label>
-          <input
-            id="address"
-            [(ngModel)]="shippingInfo.address"
-            name="address"
-            required
-          />
-        </div>
-        <div>
-          <label for="city">City</label>
-          <input
-            id="city"
-            [(ngModel)]="shippingInfo.city"
-            name="city"
-            required
-          />
-        </div>
-        <div>
-          <label for="state">State</label>
-          <input
-            id="state"
-            [(ngModel)]="shippingInfo.state"
-            name="state"
-            required
-          />
-        </div>
-        <div>
-          <label for="zip">ZIP Code</label>
-          <input id="zip" [(ngModel)]="shippingInfo.zip" name="zip" required />
-        </div>
-        <div>
-          <label for="country">Country</label>
-          <input
-            id="country"
-            [(ngModel)]="shippingInfo.country"
-            name="country"
-            required
-          />
-        </div>
-        <button type="submit" (click)="scrollToPayment()">Checkout</button>
-      </form>
-    </div>
-  
-    <div class="checkout-section" id="payment-section">
-      <h2>Payment</h2>
-      <div id="checkout"></div>
-    </div>
+  <div class="checkout-card">
+    <h2 class="checkout-header">Complete Your Purchase</h2>
+    <p class="checkout-subtext">Securely powered by Stripe</p>
+    
+    <!-- Apple Pay Button -->
+    <div id="payment-request-button" class="stripe-payment-request-button"></div>
+
+    <!-- Embedded Checkout -->
+    <div id="checkout" class="stripe-checkout"></div>
   </div>
-  
+</div>
