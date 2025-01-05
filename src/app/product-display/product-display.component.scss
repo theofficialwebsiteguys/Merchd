@@ -20,6 +20,9 @@
     max-width: 50%;
     margin: 0 auto;
     position: relative;
+    img{
+      width: 100%;
+    }
 
     @media (max-width: 1024px) {
       max-width: 100%;
@@ -176,6 +179,7 @@
 
   .product-gallery {
     max-width: 100%;
+
   }
 
   .main-image-container {

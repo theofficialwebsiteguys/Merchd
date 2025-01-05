@@ -110,7 +110,6 @@ body.menu-open {
   list-style: none;
   padding: 0;
   margin-top: 20px; /* Space below the logo */
-  flex-grow: 1;
 }
 
 .slide-in-menu-content li {
@@ -137,7 +136,7 @@ body.menu-open {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFF;
+  color: #000000;
   font-size: 16px;
   font-weight: bold;
   text-decoration: none;
